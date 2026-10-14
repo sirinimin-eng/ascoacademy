@@ -1,0 +1,978 @@
+
+:root {
+    --primary: #176b45;
+    --primary-light: #e0f2e8;
+    --page-bg: #f2f7f3;
+    --text-color: #20352a;
+}
+
+/* 1. Genel sayfa ayarları */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--page-bg);
+color: var(--text-color);
+}
+
+/* 2. Üst başlık alanı */
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* 3. Ana içerik alanı */
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* 4. Ders kartı */
+.lesson-card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    border: 1px solid #dce9df;
+    box-shadow: 0 5px 15px rgba(25, 70, 45, 0.08);
+}
+
+.lesson-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(25, 70, 45, 0.15);
+}
+
+.lesson-card h2 {
+    color: #176b45;
+    margin-top: 0;
+}
+
+/* 5. Buton */
+.lesson-button {
+    display: inline-block;
+    background-color: #238653;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lesson-button:hover {
+    background-color: #145c39;
+}
+
+/* 6. Alt bilgi */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #607367;
+}
+
+@media (max-width: 600px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+}
+
+.progress-panel {
+    grid-column: 1 / -1;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #dce9df;
+}
+
+.progress-panel h2 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 20px 0 10px;
+    font-size: 14px;
+}
+
+.progress-track {
+    height: 12px;
+    background: var(--primary-light);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 99px;
+}
+
+.lesson-area {
+    grid-column: 1 / -1;
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    border: 2px solid var(--primary-light);
+    box-shadow: 0 8px 24px rgba(25, 70, 45, 0.08);
+}
+
+.lesson-area h2 {
+    color: var(--primary);
+}
+
+.answer-button {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid #b8d8c4;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.answer-button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.lesson-button {
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+.math-answers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.answer-button {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid #b8d8c4;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+.answer-button:hover:not(:disabled) {
+    background: var(--primary);
+    color: white;
+}
+
+.answer-button:disabled {
+    cursor: default;
+    opacity: 0.75;
+}
+
+#quiz-result {
+    font-weight: bold;
+    min-height: 24px;
+}
+
+@media (max-width: 400px) {
+    .math-answers {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 🌿 ASKO ACADEMY — YENİ TASARIM */
+
+:root {
+    --primary: #176b45;
+    --primary-light: #e0f2e8;
+    --page-bg: #f4f8f5;
+    --text-color: #20352a;
+}
+
+/* Sayfanın genel görünümü */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    background:
+        radial-gradient(ellipse at top left, #e4f3e8 0%, transparent 45%),
+        var(--page-bg);
+    color: var(--text-color);
+}
+
+/* Üst başlık */
+header {
+    background: linear-gradient(135deg, #124d34, #238653);
+    padding: 48px 20px;
+    box-shadow: 0 8px 24px rgba(23, 107, 69, 0.15);
+}
+
+header h1 {
+    font-size: clamp(30px, 5vw, 42px);
+    letter-spacing: -1px;
+}
+
+header p {
+    max-width: 600px;
+    margin: 10px auto 0;
+    line-height: 1.7;
+    color: #e6f5eb;
+}
+
+/* Ana içerik */
+main {
+    max-width: 1100px;
+    gap: 24px;
+    margin: 36px auto;
+}
+
+/* 🌿 Modern ders kartları */
+.lesson-card {
+    padding: 30px;
+    background: linear-gradient(145deg, #ffffff, #f8fcf9);
+    border: 1px solid #dcebe0;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px rgba(25, 70, 45, 0.07);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    border-color: #9bc9aa;
+    box-shadow: 0 12px 28px rgba(25, 70, 45, 0.13);
+}
+
+/* Ders kartı başlıkları */
+.lesson-card h2 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    color: #176b45;
+    margin-top: 0;
+    margin-bottom: 14px;
+    line-height: 1.4;
+}
+
+/* İlerleme paneli */
+.progress-panel {
+    padding: 30px;
+    border: 1px solid #e0ebe3;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(25, 70, 45, 0.05);
+}
+
+.progress-info {
+    font-size: 14px;
+}
+
+.progress-info strong {
+    color: var(--primary);
+}
+
+.progress-track {
+    height: 14px;
+    background: #e8f0ea;
+}
+
+.progress-fill {
+    transition: width 0.4s ease;
+}
+
+/* Ders ve test alanı */
+.lesson-area {
+    padding: 32px;
+    border: 1px solid #dce9df;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(25, 70, 45, 0.07);
+}
+
+.lesson-area h2 {
+    letter-spacing: -0.4px;
+}
+
+/* Butonlar */
+.lesson-button {
+    background: linear-gradient(135deg, #238653, #176b45);
+    color: white;
+    padding: 13px 21px;
+    border-radius: 11px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(23, 107, 69, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesson-button:hover {
+    background: #145c39;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(23, 107, 69, 0.2);
+}
+
+/* Cevap seçenekleri */
+.answer-button {
+    border-radius: 12px;
+    padding: 15px;
+    border-color: #cfe2d4;
+    transition: background-color 0.2s ease, color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.answer-button:hover:not(:disabled) {
+    border-color: var(--primary);
+}
+
+/* Alt bilgi */
+footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    border-top: 1px solid #e0ebe3;
+    font-size: 14px;
+}
+
+/* Klavyeyle gezinirken odak görünümü */
+.lesson-button:focus-visible,
+.answer-button:focus-visible {
+    outline: 3px solid #86c99e;
+    outline-offset: 3px;
+}
+
+/* Küçük ekranlar */
+@media (max-width: 600px) {
+    main {
+        margin: 24px auto;
+        padding: 0 14px;
+        gap: 18px;
+    }
+
+    .lesson-card,
+    .progress-panel,
+    .lesson-area {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    header {
+        padding: 36px 18px;
+    }
+}
+/* 🌿 Üst gezinme menüsü */
+.top-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: #ffffff;
+    border-bottom: 1px solid #e0ebe3;
+    position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+.brand {
+    color: #176b45;
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #40584a;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #176b45;
+}
+
+@media (max-width: 600px) {
+    .top-nav {
+        padding: 16px;
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 14px;
+    }
+}
+
+/* Asko Academy sabit ve modern menü */
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: #ffffff;
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid #c5dfce;
+    box-shadow: 0 8px 24px rgba(23, 70, 45, 0.20);
+}
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #d5e8da;
+    box-shadow: 0 8px 24px rgba(23, 70, 45, 0.18);
+}
+.top-nav {
+    box-shadow: 0 8px 24px rgba(23, 70, 45, 0.25) !important;
+    border-bottom: 2px solid #c5dfce !important;
+}
+.top-nav {
+    border-bottom: 3px solid #2e8b57 !important;
+    box-shadow: 0 4px 0 #d9eddf !important;
+}
+
+/* 🌿 Modern ders butonları */
+.lesson-button {
+    display: inline-block;
+    padding: 13px 23px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #238653, #176b45);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(23, 107, 69, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesson-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(23, 107, 69, 0.25);
+}
+
+.lesson-button:active {
+    transform: translateY(0);
+}
+
+/* 🌿 Asko Academy illüstrasyonlu ders kartları */
+
+.lesson-image {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.lesson-content {
+    padding: 0 2px 2px;
+}
+
+.lesson-label {
+    display: inline-block;
+    color: #238653;
+    background: #e7f5ec;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+
+.lesson-content p {
+    color: #52675a;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.lesson-content .lesson-button {
+    margin-top: 0;
+}
+
+
+/* Asko Academy konu anlatımı */
+.theory-panel {
+    margin: 20px 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #dcebe0;
+    border-radius: 18px;
+    line-height: 1.8;
+}
+
+.theory-panel h3 {
+    color: #176b45;
+    margin-top: 12px;
+}
+
+.theory-panel h4 {
+    color: #238653;
+    margin-bottom: 6px;
+}
+
+.theory-panel li {
+    margin-bottom: 6px;
+}
+
+.example-box {
+    margin: 18px 0;
+    padding: 16px;
+    background: #e7f5ec;
+    border-left: 4px solid #238653;
+    border-radius: 10px;
+}
+
+.example-box p {
+    margin: 6px 0;
+}
+
+.lesson-hint {
+    margin: 12px 0;
+    padding: 12px;
+    background: #f5faf6;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.lesson-hint summary {
+    color: #176b45;
+    font-weight: 700;
+}
+
+.lesson-hint p {
+    margin-bottom: 0;
+}
+
+/* 💗 Kendini dene — pembe tasarım */
+
+.theory-panel .self-check-box {
+    background: #fff0f6;
+    border: 1px solid #ffc2da;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 18px 0;
+    box-shadow: 0 5px 0 #c2185b;
+}
+
+.theory-panel .self-check-box h4 {
+    background: #ffe0ed;
+    color: #a31559;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 #c2185b;
+}
+
+.theory-panel .self-check-box p {
+    color: #6d2445;
+}
+
+.theory-panel .self-check-box h4 {
+    color: #a31559;
+}
+
+.theory-panel .self-check-box .lesson-hint {
+    background: #ffe0ed;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+/* Pembe genel puan kutuları */
+.summary-boxes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.summary-box {
+    flex: 1;
+    min-width: 0;
+    background: #fff0f6;
+    border: 1px solid #ffc2da;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 5px 0 #c2185b;
+    text-align: center;
+}
+
+.summary-box p {
+    color: #a31559;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+@media (max-width: 450px) {
+    .summary-boxes {
+        gap: 8px;
+    }
+
+    .summary-box {
+        padding: 8px 4px;
+    }
+}
+
+/* 💗 Pembe konu seçme ekranı */
+.topic-area {
+    background: #fffafd;
+    border: 1px solid #ffc2da;
+    border-radius: 20px;
+    padding: 24px;
+    margin: 24px auto;
+    box-shadow: 0 6px 0 #c2185b;
+}
+
+.topic-area h2 {
+    color: #a31559;
+    margin-top: 0;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.topic-card {
+    min-height: 115px;
+    padding: 12px 8px;
+    background: #fff0f6;
+    border: 1px solid #ffc2da;
+    border-radius: 14px;
+    box-shadow: 0 5px 0 #c2185b;
+    color: #a31559;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.topic-card:hover {
+    background: #ffd9e9;
+    transform: translateY(-3px);
+}
+
+.topic-card:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #c2185b;
+}
+
+@media (max-width: 450px) {
+    .topic-area {
+        padding: 16px;
+    }
+
+    .topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .topic-card {
+        min-height: 100px;
+        font-size: 13px;
+    }
+}
+
+/* Konu seçme ekranı tüm sayfayı kaplasın */
+.topic-area {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 40px clamp(20px, 5vw, 80px);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Konu kutuları geniş ve düzenli olsun */
+.topic-grid {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+}
+
+.topic-card {
+    min-height: 160px;
+    font-size: 17px;
+}
+
+@media (max-width: 700px) {
+    .topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .topic-card {
+        min-height: 125px;
+    }
+}
+
+/* Gizli bölümler hiçbir koşulda görünmesin */
+[hidden] {
+    display: none !important;
+}
+
+/* Konu ekranı açıkken ana alan tam genişlikte olsun */
+main:has(#topic-area:not([hidden])) {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sadece konu ekranını düzenle */
+#topic-area:not([hidden]) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 40px clamp(20px, 5vw, 80px);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Konu kutuları */
+#topic-area .topic-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+}
+
+#topic-area .topic-card {
+    width: 100%;
+    min-height: 160px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+@media (max-width: 700px) {
+    #topic-area:not([hidden]) {
+        padding: 24px 16px;
+    }
+
+    #topic-area .topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    #topic-area .topic-card {
+        min-height: 120px;
+    }
+}
+
+/* Ana sayfadaki İngilizce başlığını biraz küçült */
+#english-lesson h2 {
+    font-size: 24px;
+}
+
+/* TAM EKRAN KONU SEÇME TASARIMI */
+#topic-area[hidden] {
+    display: none !important;
+}
+
+#topic-area:not([hidden]) {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    min-height: 0;
+
+    margin: 0;
+    padding: 36px clamp(20px, 5vw, 80px);
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    background: #ffffff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Başlık */
+#topic-area h2 {
+    font-size: clamp(26px, 3vw, 38px);
+    margin-top: 0;
+}
+
+#topic-area .topic-grid:not([hidden]) {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+    align-items: stretch;
+}
+
+/* Pembe konu kutuları */
+#topic-area .topic-card {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px 8px;
+    box-sizing: border-box;
+
+    background: #fff0f6;
+    border: 1px solid #ffc2da;
+    border-radius: 14px;
+    box-shadow: 0 4px 0 #c2185b;
+
+    color: #a31559;
+    font-size: 15px;
+}
+/* Telefon ve dar ekranlar */
+@media (max-width: 700px) {
+    #topic-area:not([hidden]) {
+        padding: 24px 16px;
+    }
+
+    #topic-area .topic-grid:not([hidden]) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #topic-area .topic-card {
+        min-height: 130px;
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+/* ASCO ACADEMY - SINIF RENKLERİ */
+
+:root {
+    --grade-6: #F6C6DA;
+    --grade-7: #FFD0A3;
+    --grade-8: #B9D9FF;
+    --grade-9: #C9EBCB;
+
+    --grade-6-dark: #8E315D;
+    --grade-7-dark: #995018;
+    --grade-8-dark: #245AA6;
+    --grade-9-dark: #286A35;
+}
+
+/* 6. Sınıf - Pembe */
+.grade-6 {
+    --grade-color: var(--grade-6);
+    --grade-dark: var(--grade-6-dark);
+}
+
+/* 7. Sınıf - Turuncu */
+.grade-7 {
+    --grade-color: var(--grade-7);
+    --grade-dark: var(--grade-7-dark);
+}
+
+/* 8. Sınıf - Mavi */
+.grade-8 {
+    --grade-color: var(--grade-8);
+    --grade-dark: var(--grade-8-dark);
+}
+
+/* 9. Sınıf - Yeşil */
+.grade-9 {
+    --grade-color: var(--grade-9);
+    --grade-dark: var(--grade-9-dark);
+}
+
+/* SINIFA GÖRE KONU KARTLARININ RENKLERİ */
+
+#topic-area .grade-6 .topic-card {
+    background: var(--grade-color);
+    border-color: #E8A9C4;
+    box-shadow: 0 4px 0 var(--grade-dark);
+    color: var(--grade-dark);
+}
+
+#topic-area .grade-6 .topic-card:hover {
+    background: #FBE0EB;
+}
+
+/* Test alanı ve ilerleme çubuğu için sınıf renkleri */
+
+.grade-6 .progress-fill {
+    background: var(--grade-dark);
+}
+
+.grade-6 .progress-track {
+    background: var(--grade-color);
+}
+
+.grade-6 .lesson-area {
+    border-color: var(--grade-color);
+}
+
+/* Test alanının pembe rengi */
+.grade-6 .progress-fill {
+    background: var(--grade-6-dark);
+}
+
+.grade-6 .progress-track {
+    background: var(--grade-6);
+}
+
+
+/* Matematik test alanının pembe çerçevesi */
+#lesson-area.grade-6 {
+    border-color: var(--grade-6-dark);
+}
+
+/* Matematik test alanındaki vurgu rengi */
+#lesson-area.grade-6 button {
+    border-color: var(--grade-6-dark);
+}

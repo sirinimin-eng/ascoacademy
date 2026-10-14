@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asco Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="top-nav">
+    <a href="#" class="brand">🌿 Asco Academy</a>
+
+    <div class="nav-links">
+        <a href="#" onclick="closeTopics(); closeLesson(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Ana Sayfa</a>
+        <a href="#" onclick="openLesson('math'); return false;">Matematik</a>
+        <a href="#" onclick="openLesson('english'); return false;">İngilizce</a>
+        <a href="#" onclick="
+    closeLesson();
+    document.getElementById('topic-area').hidden = true;
+    document.getElementById('math-topics').hidden = true;
+    document.getElementById('english-topics').hidden = true;
+    document.getElementById('math-lesson').hidden = true;
+    document.getElementById('english-lesson').hidden = true;
+    document.getElementById('progress-panel').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+">İlerlemem</a>
+    </div>
+</nav>
+
+    <header>
+        <h1>🌿Asco Academy</h1>
+        <p>Öğrenmenin yeni yolu. Geleceğini bugün inşa et.</p>
+    </header>
+    <main>
+
+
+
+    <section class="progress-panel" id="progress-panel" hidden>
+    <h2>Öğrenme yolculuğun 💗</h2>
+    <p>Her doğru cevap seni ileri taşır!</p>
+
+    <div class="progress-info">
+    <span>Matematik testi</span>
+    <strong id="progress-text">0 / 5 soru</strong>
+</div>
+
+<div class="progress-track">
+    <div id="progress-fill" class="progress-fill"></div>
+</div>
+
+<p id="score-text">Matematik puanı: 0</p>
+<p id="correct-text">Matematik doğru cevap: 0 / 5</p>
+
+<div class="progress-info">
+    <span>İngilizce testi</span>
+    <strong id="english-progress-text">0 / 5 soru (%0)</strong>
+</div>
+
+<div class="progress-track">
+    <div id="english-progress-fill" class="progress-fill" style="width: 0%"></div>
+</div>
+
+<p id="english-score-text">İngilizce puanı: 0</p>
+<p id="english-correct-text">İngilizce doğru cevap: 0 / 5</p>
+
+<div class="summary-boxes">
+    <div class="summary-box">
+        <p id="total-score-text">🏆 Genel toplam puan: 0</p>
+    </div>
+
+    <div class="summary-box">
+        <p id="total-correct-text">🎯 Genel doğru cevap: 0 / 10</p>
+    </div>
+</div>
+
+</section>
+
+</section>
+
+<section class="lesson-card" id="math-lesson">
+
+    <img
+        class="lesson-image"
+        src="https://placehold.co/600x300/E7F5EC/176B45?text=Matematik"
+        alt="Matematik öğrenme görseli"
+    >
+
+    <div class="lesson-content">
+        <span class="lesson-label">MANTIK VE SAYILAR</span>
+
+        <h2>📐 Matematik</h2>
+
+        <p>
+            Temel matematikten ileri seviyeye kadar
+            adım adım öğren.
+        </p>
+
+        <button class="lesson-button" onclick="openLesson('math')">
+            Matematiğe Başla →
+        </button>
+    </div>
+
+</section>
+        
+<section class="lesson-card" id="english-lesson">
+
+    <img
+        class="lesson-image"
+        src="https://placehold.co/600x300/E7F5EC/176B45?text=English"
+        alt="İngilizce öğrenme görseli"
+    >
+
+    <div class="lesson-content">
+        <span class="lesson-label">KELİMELER VE DİL</span>
+
+        <h2>🌍 İngilizce</h2>
+
+        <p>
+            Kelimeler, dil bilgisi ve pratik
+            alıştırmalarla İngilizceni geliştir.
+        </p>
+
+        <button class="lesson-button" onclick="openLesson('english')">
+            İngilizceye Başla →
+        </button>
+    </div>
+
+</section>
+
+<section id="topic-area" class="topic-area" hidden>
+    <h2 id="topic-page-title">Konularımız 💗</h2>
+    <p>Öğrenmek istediğin konuyu seç.</p>
+
+    <div id="math-topics" class="topic-grid grade-6" hidden>
+        <button class="topic-card" onclick="openTopic('math', 'factors')">
+            📐<br>Çarpanlar ve Katlar
+        </button>
+        <button class="topic-card" onclick="openTopic('math', 'integers')">
+            ➕<br>Tam Sayılar
+        </button>
+        <button class="topic-card" onclick="openTopic('math', 'fractions')">
+            🍰<br>Kesirler
+        </button>
+        <button class="topic-card" onclick="openTopic('math', 'decimals')">
+            🔢<br>Ondalık Gösterim
+        </button>
+        <button class="topic-card" onclick="openTopic('math', 'ratio')">
+            ⚖️<br>Oran
+        </button>
+        <button class="topic-card" onclick="openTopic('math', 'geometry')">
+            📏<br>Geometri
+        </button>
+    </div>
+
+    <div id="english-topics" class="topic-grid" hidden>
+        <button class="topic-card" onclick="openTopic('english', 'classroom')">
+            🏫<br>Classroom Life
+        </button>
+        <button class="topic-card" onclick="openTopic('english', 'daily-routines')">
+            ⏰<br>Daily Routines
+        </button>
+        <button class="topic-card" onclick="openTopic('english', 'food')">
+            🍎<br>Food and Drinks
+        </button>
+        <button class="topic-card" onclick="openTopic('english', 'hobbies')">
+            ⚽<br>Hobbies
+        </button>
+        <button class="topic-card" onclick="openTopic('english', 'grammar')">
+            📝<br>Grammar
+        </button>
+        <button class="topic-card" onclick="openTopic('english', 'vocabulary')">
+            📚<br>Vocabulary
+        </button>
+    </div>
+
+    <button class="lesson-button" onclick="closeTopics()">
+        ← Ana sayfaya dön
+    </button>
+</section>
+
+<section id="lesson-area" class="lesson-area" hidden>
+    <h2 id="lesson-title">Dersimiz</h2>
+    <p id="lesson-description"></p>
+
+    
+<div id="integers-theory" class="theory-panel" hidden>
+    <h3>➕ Tam Sayılar</h3>
+
+    <p>
+        Tam sayılar; negatif sayıları, sıfırı ve pozitif sayıları kapsar.
+    </p>
+
+    <h4>📘 Tam sayılar nelerdir?</h4>
+
+    <p>
+        Pozitif tam sayılar: 1, 2, 3, 4, 5, ...
+    </p>
+
+    <p>
+        Negatif tam sayılar: -1, -2, -3, -4, -5, ...
+    </p>
+
+    <p>
+        Sıfır: 0
+    </p>
+
+    <h4>💡 Örnekler</h4>
+
+    <p>• Hava sıcaklığı -5 °C olabilir.</p>
+    <p>• Deniz seviyesinin 10 metre üstü +10 ile gösterilebilir.</p>
+    <p>• Deniz seviyesinin 4 metre altı -4 ile gösterilebilir.</p>
+
+    <h4>🧠 İşaretleri karşılaştıralım</h4>
+
+    <p>-2, -5'ten büyüktür. Çünkü sayı doğrusunda daha sağdadır.</p>
+    <p>3, -1'den büyüktür. Çünkü pozitif sayılar sıfırdan büyüktür.</p>
+</div>
+<div id="math-theory" class="theory-panel" hidden>
+    
+
+    <h3>📘 Ders 1: Çarpanlar ve Katlar</h3>
+
+    <h4>1. Çarpan nedir?</h4>
+    <p>
+        Bir doğal sayıyı kalansız bölen sayılara o sayının
+        çarpanları denir.
+    </p>
+
+    <div class="example-box">
+        <strong>Örnek: 12'nin çarpanları</strong>
+        <p>12 ÷ 1 = 12</p>
+        <p>12 ÷ 2 = 6</p>
+        <p>12 ÷ 3 = 4</p>
+        <p>12 ÷ 4 = 3</p>
+        <p>12 ÷ 6 = 2</p>
+        <p>12 ÷ 12 = 1</p>
+        <p><strong>12'nin pozitif çarpanları:</strong> 1, 2, 3, 4, 6, 12</p>
+    </div>
+
+    <h4>2. Kat nedir?</h4>
+    <p>
+        Bir doğal sayıyı 1, 2, 3, 4 gibi doğal sayılarla
+        çarparak elde ettiğimiz sonuçlar o sayının katlarıdır.
+    </p>
+
+    <div class="example-box">
+        <strong>Örnek: 5'in ilk altı pozitif katı</strong>
+        <p>5 × 1 = 5</p>
+        <p>5 × 2 = 10</p>
+        <p>5 × 3 = 15</p>
+        <p>5 × 4 = 20</p>
+        <p>5 × 5 = 25</p>
+        <p>5 × 6 = 30</p>
+        <p><strong>Katları:</strong> 5, 10, 15, 20, 25, 30, ...</p>
+    </div>
+
+    <h4>3. Asal sayı nedir?</h4>
+    <p>
+        1'den büyük ve yalnızca 1'e ve kendisine kalansız
+        bölünebilen doğal sayılara asal sayı denir.
+    </p>
+
+    <div class="example-box">
+        <p><strong>2:</strong> Çarpanları 1 ve 2 olduğu için asaldır.</p>
+        <p><strong>7:</strong> Çarpanları 1 ve 7 olduğu için asaldır.</p>
+        <p><strong>9:</strong> 1, 3 ve 9'a bölündüğü için asal değildir.</p>
+        <p><strong>Önemli:</strong> 1 asal sayı değildir.</p>
+    </div>
+
+    <h4>4. EBOB ve EKOK</h4>
+    <p>
+        <strong>EBOB</strong>, iki sayının ortak çarpanlarının
+        en büyüğüdür.
+    </p>
+    <p>
+        <strong>EKOK</strong>, iki sayının ortak katlarının
+        en küçüğüdür.
+    </p>
+
+    <div class="example-box">
+        <strong>Örnek: 12 ve 18</strong>
+        <p>12'nin çarpanları: 1, 2, 3, 4, 6, 12</p>
+        <p>18'in çarpanları: 1, 2, 3, 6, 9, 18</p>
+        <p><strong>EBOB(12, 18) = 6</strong></p>
+        <p>12'nin katları: 12, 24, 36, 48, ...</p>
+        <p>18'in katları: 18, 36, 54, ...</p>
+        <p><strong>EKOK(12, 18) = 36</strong></p>
+    </div>
+
+    <div class="self-check-box">
+    <h4>✍️ Kendini dene</h4>
+    <p><strong>Soru 1:</strong> Aşağıdakilerden hangisi 18'in çarpanı değildir?</p>
+    <p>A) 2 &nbsp;&nbsp; B) 3 &nbsp;&nbsp; C) 5 &nbsp;&nbsp; D) 6</p>
+    <details class="lesson-hint">
+        <summary>Cevabı kontrol et</summary>
+        <p><strong>C) 5.</strong> Çünkü 18, 5'e kalansız bölünmez.</p>
+    </details>
+
+    <p><strong>Soru 2:</strong> 4'ün 30'dan küçük pozitif katları nelerdir?</p>
+    <details class="lesson-hint">
+        <summary>Cevabı kontrol et</summary>
+        <p><strong>4, 8, 12, 16, 20, 24, 28.</strong></p>
+    </details>
+
+    <p>
+        🎯 Bu konuyu bitirdiğinde çarpanları, katları ve asal
+        sayıları açıklayabilmeli; EBOB ve EKOK örneklerini çözebilmelisin.
+    </p>
+    </div>
+</div>
+
+
+
+<div id="math-quiz" hidden>
+    <h3>🧠 Matematik Mini Testi</h3>
+
+    <p id="math-question"></p>
+
+    <div id="math-answers" class="math-answers"></div>
+
+    <p id="quiz-result" aria-live="polite"></p>
+
+    <button
+        id="next-question"
+        class="lesson-button"
+        onclick="nextQuestion()"
+        hidden
+    >
+        Sonraki soru →
+    </button>
+
+<button
+    id="restart-math-quiz"
+    class="lesson-button"
+    onclick="restartMathQuiz()"
+>
+    🔄 Matematik testini yeniden çöz
+</button>
+
+</div>
+
+
+
+<div id="english-theory" class="theory-panel" hidden>
+    <span class="lesson-label">ENGLISH</span>
+    <h3>📘 Lesson 1: Classroom Life</h3>
+
+    <h4>1. Classroom vocabulary — Sınıf kelimeleri</h4>
+    <div class="example-box">
+        <p><strong>classroom</strong> — sınıf</p>
+        <p><strong>student</strong> — öğrenci</p>
+        <p><strong>teacher</strong> — öğretmen</p>
+        <p><strong>homework</strong> — ev ödevi</p>
+        <p><strong>lesson</strong> — ders</p>
+        <p><strong>timetable</strong> — ders programı</p>
+        <p><strong>break</strong> — teneffüs / mola</p>
+        <p><strong>exam</strong> — sınav</p>
+    </div>
+
+    <h4>2. Talking about school — Okuldan bahsetmek</h4>
+    <div class="example-box">
+        <p><strong>I have Maths on Monday.</strong></p>
+        <p>Pazartesi günü matematik dersim var.</p>
+
+        <p><strong>My favourite subject is English.</strong></p>
+        <p>En sevdiğim ders İngilizce.</p>
+
+        <p><strong>We do our homework after school.</strong></p>
+        <p>Okuldan sonra ödevimizi yaparız.</p>
+
+        <p><strong>Our teacher explains the lesson.</strong></p>
+        <p>Öğretmenimiz dersi açıklar.</p>
+    </div>
+
+    <h4>3. Present Simple — Geniş zaman</h4>
+    <p>
+        Rutinleri, alışkanlıkları ve genel gerçekleri anlatmak
+        için Present Simple kullanılır.
+    </p>
+
+    <div class="example-box">
+        <strong>Olumlu cümle</strong>
+        <p>I study English every day. — Her gün İngilizce çalışırım.</p>
+        <p>We have lunch at school. — Okulda öğle yemeği yeriz.</p>
+
+        <strong>He / She / It kuralı</strong>
+        <p>He studies English. — O İngilizce çalışır.</p>
+        <p>She likes Maths. — O matematiği sever.</p>
+        <p>He ve she ile fiile çoğunlukla -s veya -es eklenir.</p>
+    </div>
+
+    <h4>4. Olumsuz cümleler ve sorular</h4>
+    <div class="example-box">
+        <p><strong>I don't like exams.</strong> — Sınavları sevmem.</p>
+        <p><strong>She doesn't play football.</strong> — O futbol oynamaz.</p>
+        <p><strong>Do you study every day?</strong> — Her gün çalışır mısın?</p>
+        <p><strong>Does he like English?</strong> — İngilizceyi sever mi?</p>
+    </div>
+
+    <p>
+        <strong>Dikkat:</strong> Doesn't ve does ile fiil temel
+        hâline döner: “She doesn't likes” değil,
+        “She doesn't like” doğrudur.
+    </p>
+
+    <div class="self-check-box">
+    <h4>5. Kendini dene</h4>
+    <p><strong>Soru 1:</strong> “She ___ English every day.”</p>
+    <p>A) study &nbsp;&nbsp; B) studies &nbsp;&nbsp; C) studying</p>
+    <details class="lesson-hint">
+        <summary>Cevabı kontrol et</summary>
+        <p><strong>B) studies.</strong> She ile olumlu geniş zaman cümlesinde fiile -s veya -es eklenir.</p>
+    </details>
+
+    <p><strong>Soru 2:</strong> “I ___ like Maths.” cümlesinde boşluk ne olmalı?</p>
+    <p>A) doesn't &nbsp;&nbsp; B) don't &nbsp;&nbsp; C) isn't</p>
+    <details class="lesson-hint">
+        <summary>Cevabı kontrol et</summary>
+        <p><strong>B) don't.</strong> I ile olumsuz geniş zamanda don't kullanılır.</p>
+    </details>
+
+    <p>
+        🎯 Ders hedefi: Okul kelimelerini öğrenmek ve günlük
+        okul rutinlerini Present Simple ile anlatabilmek.
+    </p>
+    </div>
+</div>
+
+
+
+<div id="english-quiz" hidden>
+    <h3>🌍 İngilizce Kelime Testi</h3>
+
+    <p id="english-question"></p>
+
+    <div id="english-answers" class="math-answers"></div>
+
+    <p id="english-result" aria-live="polite"></p>
+
+ <button
+    id="english-next-question"
+    class="lesson-button"
+    onclick="nextEnglishQuestion()"
+    hidden
+>
+    Sonraki kelime →
+</button>
+
+<button
+    id="restart-english-quiz"
+    class="lesson-button"
+    onclick="restartEnglishQuiz()"
+>
+    🔄 İngilizce testini yeniden çöz
+</button>
+</div>
+
+    <button class="lesson-button" onclick="backToTopics()">
+    ← Konulara geri dön
+</button>
+</section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Asco Academy · Her gün bir adım ileri.</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
